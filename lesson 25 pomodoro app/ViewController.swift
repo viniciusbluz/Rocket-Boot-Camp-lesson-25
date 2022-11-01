@@ -11,28 +11,28 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        timeLabel.text = timeSelected
+        timeLabel.text = textTimeSelected
     }
     var timer = Timer()
     var isTimerStarted = false
     var time = 1500
-    var timeSelected = "25:00"
-    var timeTest = 1500
+    var textTimeSelected = "25:00"
+    var timeSelected = 1500
     var timeHitzero: Bool = false
     
     @IBAction func segmentControlOption(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex{
         case 0:
-            timeSelected = "25:00"
-            timeTest = 1500
+            textTimeSelected = "25:00"
+            timeSelected = 1500
             resetTimer()
         case 1:
-            timeSelected = "5:00"
-            timeTest = 5
+            textTimeSelected = "5:00"
+            timeSelected = 3
             resetTimer()
         case 2:
-            timeSelected = "15:00"
-            timeTest = 900
+            textTimeSelected = "15:00"
+            timeSelected = 900
             resetTimer()
         default:
             break
@@ -56,9 +56,9 @@ class ViewController: UIViewController {
     
     func resetTimer(){
         timer.invalidate()
-        time = timeTest
+        time = timeSelected
         isTimerStarted = false
-        timeLabel.text = timeSelected
+        timeLabel.text = textTimeSelected
         startButton.setTitle("Start", for: .normal)
     }
     
